@@ -27,4 +27,19 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('about');
 	}
+
+	public function student()
+	{
+		$this->load->view('student');
+	}
+
+	public function question()
+	{
+		$this->load->view('question');
+	}
+
+	public function score()
+	{
+		$this->load->view('score');
+	}
 }
