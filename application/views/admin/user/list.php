@@ -22,13 +22,13 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Questions</h1>
+                    <h1 class="mt-4">Students</h1>
                     <?php $this->load->view("admin/_partials/breadcrumb.php") ?>
 
                     <!-- DataTables -->
                     <div class="card mb-3">
                         <div class="card-header">
-                            <a href="<?php echo site_url('admin/questions/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+                            <a href="<?php echo site_url('admin/users/add') ?>"><i class="fas fa-plus"></i> Add New</a>
                         </div>
                         <div class="card-body">
 
@@ -36,23 +36,27 @@
                                 <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Question</th>
-                                            <th>Answer</th>
+                                            <th>NIS</th>
+                                            <th>Nama</th>
+                                            <th>Password</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($questions as $question) : ?>
+                                        <?php foreach ($users as $user) : ?>
                                             <tr>
-                                                <td width="500">
-                                                    <?php echo $question->question ?>
+                                                <td width="100">
+                                                    <?php echo $user->nis ?>
+                                                </td>
+                                                <td width="400">
+                                                    <?php echo $user->full_name ?>
                                                 </td>
                                                 <td width="100">
-                                                    <?php echo $question->answer ?>
+                                                    <?php echo $user->password ?>
                                                 </td>
-                                                <td width="150">
-                                                    <a href="<?php echo site_url('admin/questions/edit/' . $question->question_id) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-                                                    <a onclick="deleteConfirm('<?php echo site_url('admin/questions/delete/' . $question->question_id) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                <td width="300">
+                                                    <a href="<?php echo site_url('admin/users/edit/' . $user->user_id) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+                                                    <a onclick="deleteConfirm('<?php echo site_url('admin/users/delete/' . $user->user_id) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>

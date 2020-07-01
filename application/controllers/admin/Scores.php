@@ -2,12 +2,12 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Questions extends CI_Controller
+class Scores extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("question_model");
+        $this->load->model("score_model");
         $this->load->library('form_validation');
 
         //untuk mengecek apakah user sudah login atau belum.
@@ -17,49 +17,49 @@ class Questions extends CI_Controller
 
     public function index()
     {
-        $data["questions"] = $this->question_model->getAll();
-        $this->load->view("admin/question/list", $data);
+        $data["scores"] = $this->score_model->getAll();
+        $this->load->view("admin/score/list", $data);
     }
 
     public function add()
     {
-        $question = $this->question_model;
+        $score = $this->score_model;
         $validation = $this->form_validation;
-        $validation->set_rules($question->rules());
+        $validation->set_rules($score->rules());
 
         if ($validation->run()) {
-            $question->save();
+            $score->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
-        $this->load->view("admin/question/new_form");
+        $this->load->view("admin/score/new_form");
     }
 
     public function edit($id = null)
     {
-        if (!isset($id)) redirect('admin/questions');
+        if (!isset($id)) redirect('admin/scores');
 
-        $question = $this->question_model;
+        $score = $this->score_model;
         $validation = $this->form_validation;
-        $validation->set_rules($question->rules());
+        $validation->set_rules($score->rules());
 
         if ($validation->run()) {
-            $question->update();
+            $score->update();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
-        $data["question"] = $question->getById($id);
-        if (!$data["question"]) show_404();
+        $data["score"] = $score->getById($id);
+        if (!$data["score"]) show_404();
 
-        $this->load->view("admin/question/edit_form", $data);
+        $this->load->view("admin/score/edit_form", $data);
     }
 
     public function delete($id = null)
     {
         if (!isset($id)) show_404();
 
-        if ($this->question_model->delete($id)) {
-            redirect(site_url('admin/questions'));
+        if ($this->score_model->delete($id)) {
+            redirect(site_url('admin/scores'));
         }
     }
 }

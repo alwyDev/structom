@@ -22,7 +22,7 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-
+                    <h1 class="mt-4">Add Question</h1>
                     <?php $this->load->view("admin/_partials/breadcrumb.php") ?>
 
                     <?php if ($this->session->flashdata('success')) : ?>

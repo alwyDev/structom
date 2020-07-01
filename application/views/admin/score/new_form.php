@@ -22,7 +22,7 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Edit Question</h1>
+                    <h1 class="mt-4">Add Score</h1>
                     <?php $this->load->view("admin/_partials/breadcrumb.php") ?>
 
                     <?php if ($this->session->flashdata('success')) : ?>
@@ -31,45 +31,48 @@
                         </div>
                     <?php endif; ?>
 
-                    <!-- Card  -->
                     <div class="card mb-3">
                         <div class="card-header">
-
-                            <a href="<?php echo site_url('admin/questions/') ?>"><i class="fas fa-arrow-left"></i>
-                                Back</a>
+                            <a href="<?php echo site_url('admin/scores/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
                         </div>
                         <div class="card-body">
 
-                            <form action="" method="post" enctype="multipart/form-data">
-                                <!-- Note: atribut action dikosongkan, artinya action-nya akan diproses 
-                oleh controller tempat view ini digunakan. Yakni index.php/admin/questions/edit/ID --->
-
-                                <input type="hidden" name="id" value="<?php echo $question->question_id ?>" />
-
+                            <form action="<?php echo site_url('admin/scores/add') ?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label for="question">Question*</label>
-                                    <input class="form-control <?php echo form_error('question') ? 'is-invalid' : '' ?>" type="text" name="question" placeholder="question question" value="<?php echo $question->question ?>" />
+                                    <label for="nis">NIS*</label>
+                                    <input class="form-control <?php echo form_error('nis') ? 'is-invalid' : '' ?>" type="text" name="name" placeholder="name" />
                                     <div class="invalid-feedback">
-                                        <?php echo form_error('question') ?>
+                                        <?php echo form_error('nis') ?>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="answer">Answer</label>
-                                    <input class="form-control <?php echo form_error('answer') ? 'is-invalid' : '' ?>" type="text" name="answer" min="0" placeholder="question answer" value="<?php echo $question->answer ?>" />
+                                    <label for="name">Name*</label>
+                                    <input class="form-control <?php echo form_error('name') ? 'is-invalid' : '' ?>" type="text" name="name" placeholder="name" />
                                     <div class="invalid-feedback">
-                                        <?php echo form_error('answer') ?>
+                                        <?php echo form_error('name') ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="score">Score*</label>
+                                    <input class="form-control <?php echo form_error('score') ? 'is-invalid' : '' ?>" type="text" name="score" min="0" placeholder="score" />
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('score') ?>
                                     </div>
                                 </div>
 
                                 <input class="btn btn-success" type="submit" name="btn" value="Save" />
                             </form>
+
                         </div>
+
                         <div class="card-footer small text-muted">
                             * required fields
                         </div>
                     </div>
                     <!-- /.container-fluid -->
+                </div>
             </main>
             <?php $this->load->view("admin/_partials/footer.php") ?>
         </div>

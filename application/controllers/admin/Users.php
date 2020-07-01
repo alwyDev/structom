@@ -2,12 +2,12 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Questions extends CI_Controller
+class Users extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("question_model");
+        $this->load->model("user_model");
         $this->load->library('form_validation');
 
         //untuk mengecek apakah user sudah login atau belum.
@@ -17,49 +17,49 @@ class Questions extends CI_Controller
 
     public function index()
     {
-        $data["questions"] = $this->question_model->getAll();
-        $this->load->view("admin/question/list", $data);
+        $data["users"] = $this->user_model->getAll();
+        $this->load->view("admin/user/list", $data);
     }
 
     public function add()
     {
-        $question = $this->question_model;
+        $user = $this->user_model;
         $validation = $this->form_validation;
-        $validation->set_rules($question->rules());
+        $validation->set_rules($user->rules());
 
         if ($validation->run()) {
-            $question->save();
+            $user->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
-        $this->load->view("admin/question/new_form");
+        $this->load->view("admin/user/new_form");
     }
 
     public function edit($id = null)
     {
-        if (!isset($id)) redirect('admin/questions');
+        if (!isset($id)) redirect('admin/users');
 
-        $question = $this->question_model;
+        $user = $this->user_model;
         $validation = $this->form_validation;
-        $validation->set_rules($question->rules());
+        $validation->set_rules($user->rules());
 
         if ($validation->run()) {
-            $question->update();
+            $user->update();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
-        $data["question"] = $question->getById($id);
-        if (!$data["question"]) show_404();
+        $data["user"] = $user->getById($id);
+        if (!$data["user"]) show_404();
 
-        $this->load->view("admin/question/edit_form", $data);
+        $this->load->view("admin/user/edit_form", $data);
     }
 
     public function delete($id = null)
     {
         if (!isset($id)) show_404();
 
-        if ($this->question_model->delete($id)) {
-            redirect(site_url('admin/questions'));
+        if ($this->user_model->delete($id)) {
+            redirect(site_url('admin/users'));
         }
     }
 }

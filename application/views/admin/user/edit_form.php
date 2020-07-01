@@ -22,7 +22,7 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Edit Question</h1>
+                    <h1 class="mt-4">Edit Student</h1>
                     <?php $this->load->view("admin/_partials/breadcrumb.php") ?>
 
                     <?php if ($this->session->flashdata('success')) : ?>
@@ -35,30 +35,38 @@
                     <div class="card mb-3">
                         <div class="card-header">
 
-                            <a href="<?php echo site_url('admin/questions/') ?>"><i class="fas fa-arrow-left"></i>
+                            <a href="<?php echo site_url('admin/users/') ?>"><i class="fas fa-arrow-left"></i>
                                 Back</a>
                         </div>
                         <div class="card-body">
 
                             <form action="" method="post" enctype="multipart/form-data">
                                 <!-- Note: atribut action dikosongkan, artinya action-nya akan diproses 
-                oleh controller tempat view ini digunakan. Yakni index.php/admin/questions/edit/ID --->
+                oleh controller tempat view ini digunakan. Yakni index.php/admin/scores/edit/ID --->
 
-                                <input type="hidden" name="id" value="<?php echo $question->question_id ?>" />
+                                <input type="hidden" name="id" value="<?php echo $user->user_id ?>" />
 
                                 <div class="form-group">
-                                    <label for="question">Question*</label>
-                                    <input class="form-control <?php echo form_error('question') ? 'is-invalid' : '' ?>" type="text" name="question" placeholder="question question" value="<?php echo $question->question ?>" />
+                                    <label for="nis">NIS*</label>
+                                    <input class="form-control <?php echo form_error('nis') ? 'is-invalid' : '' ?>" type="text" name="nis" placeholder="NIS" value="<?php echo $user->nis ?>" />
                                     <div class="invalid-feedback">
-                                        <?php echo form_error('question') ?>
+                                        <?php echo form_error('nis') ?>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="answer">Answer</label>
-                                    <input class="form-control <?php echo form_error('answer') ? 'is-invalid' : '' ?>" type="text" name="answer" min="0" placeholder="question answer" value="<?php echo $question->answer ?>" />
+                                    <label for="full_name">Name*</label>
+                                    <input class="form-control <?php echo form_error('full_name') ? 'is-invalid' : '' ?>" type="text" name="full_name" placeholder="Name" value="<?php echo $user->full_name ?>" />
                                     <div class="invalid-feedback">
-                                        <?php echo form_error('answer') ?>
+                                        <?php echo form_error('full_name') ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="text" name="password" min="0" placeholder="Password" value="<?php echo $user->password ?>" />
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('password') ?>
                                     </div>
                                 </div>
 
