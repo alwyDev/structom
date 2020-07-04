@@ -13,17 +13,13 @@
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <?php $this->load->view("admin/_partials/sidebar.php") ?>
-                <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    Start Bootstrap
-                </div>
             </nav>
         </div>
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
                     <h1 class="mt-4">Questions</h1>
-                    <?php $this->load->view("admin/_partials/breadcrumb.php") ?>
+                    <!-- <?php $this->load->view("admin/_partials/breadcrumb.php") ?> -->
 
                     <!-- DataTables -->
                     <div class="card mb-3">
@@ -31,9 +27,8 @@
                             <a href="<?php echo site_url('admin/questions/add') ?>"><i class="fas fa-plus"></i> Add New</a>
                         </div>
                         <div class="card-body">
-
                             <div class="table-responsive">
-                                <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Question</th>
@@ -56,7 +51,6 @@
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
-
                                     </tbody>
                                 </table>
                             </div>

@@ -13,17 +13,13 @@
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <?php $this->load->view("admin/_partials/sidebar.php") ?>
-                <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    Start Bootstrap
-                </div>
             </nav>
         </div>
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
                     <h1 class="mt-4">Students</h1>
-                    <?php $this->load->view("admin/_partials/breadcrumb.php") ?>
+                    <!-- <?php $this->load->view("admin/_partials/breadcrumb.php") ?> -->
 
                     <!-- DataTables -->
                     <div class="card mb-3">
@@ -33,7 +29,7 @@
                         <div class="card-body">
 
                             <div class="table-responsive">
-                                <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>NIS</th>
@@ -51,10 +47,10 @@
                                                 <td width="400">
                                                     <?php echo $user->full_name ?>
                                                 </td>
-                                                <td width="100">
+                                                <td width="200">
                                                     <?php echo $user->password ?>
                                                 </td>
-                                                <td width="300">
+                                                <td width="150">
                                                     <a href="<?php echo site_url('admin/users/edit/' . $user->user_id) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
                                                     <a onclick="deleteConfirm('<?php echo site_url('admin/users/delete/' . $user->user_id) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
                                                 </td>

@@ -13,17 +13,13 @@
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <?php $this->load->view("admin/_partials/sidebar.php") ?>
-                <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    Start Bootstrap
-                </div>
             </nav>
         </div>
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
                     <h1 class="mt-4">Edit Score</h1>
-                    <?php $this->load->view("admin/_partials/breadcrumb.php") ?>
+                    <!-- <?php $this->load->view("admin/_partials/breadcrumb.php") ?> -->
 
                     <?php if ($this->session->flashdata('success')) : ?>
                         <div class="alert alert-success" role="alert">
@@ -42,7 +38,7 @@
 
                             <form action="" method="post" enctype="multipart/form-data">
                                 <!-- Note: atribut action dikosongkan, artinya action-nya akan diproses 
-                oleh controller tempat view ini digunakan. Yakni index.php/admin/scores/edit/ID --->
+                oleh controller tempat view ini digunakan. Yakni admin/scores/edit/ID --->
 
                                 <input type="hidden" name="id" value="<?php echo $score->student_id ?>" />
 

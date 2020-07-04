@@ -52,10 +52,3 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'overview';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-
-// $route['about'] = 'welcome/about';
-// $route['about'] = 'welcome/student';
-// $route['about'] = 'welcome/question';
-// $route['about'] = 'welcome/score';
-
-// $route['admin'] = 'admin/overview';
