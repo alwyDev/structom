@@ -28,14 +28,16 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>No</th>
                                             <th>Question</th>
                                             <th>Choice 1</th>
                                             <th>Choice 2</th>
                                             <th>Choice 3</th>
                                             <th>Choice 4</th>
+                                            <th>Choice 5</th>
                                             <th>Answer</th>
                                             <th>Action</th>
                                         </tr>
@@ -43,6 +45,9 @@
                                     <tbody>
                                         <?php foreach ($question as $question) : ?>
                                             <tr>
+                                                <td width="50">
+                                                    <?php echo $question->no ?>
+                                                </td>
                                                 <td width="500">
                                                     <?php echo $question->question ?>
                                                 </td>
@@ -57,6 +62,9 @@
                                                 </td>
                                                 <td width="100">
                                                     <?php echo $question->choice_4 ?>
+                                                </td>
+                                                <td width="100">
+                                                    <?php echo $question->choice_5 ?>
                                                 </td>
                                                 <td width="100">
                                                     <?php echo $question->answer ?>

@@ -10,11 +10,17 @@ class Question_model extends CI_Model
     public $choice_2;
     public $choice_3;
     public $choice_4;
+    public $choice_5;
     public $answer;
 
     public function rules()
     {
         return [
+            [
+                'field' => 'no',
+                'label' => 'No',
+                'rules' => 'required'
+            ],
             [
                 'field' => 'question',
                 'label' => 'Question',
@@ -41,6 +47,11 @@ class Question_model extends CI_Model
                 'rules' => 'required'
             ],
             [
+                'field' => 'choice_5',
+                'label' => 'Choice_5',
+                'rules' => 'required'
+            ],
+            [
                 'field' => 'answer',
                 'label' => 'Answer',
                 'rules' => 'required'
@@ -62,11 +73,13 @@ class Question_model extends CI_Model
     {
         $post = $this->input->post();
         // $this->quiz_id = '';
+        $this->no = $post["no"];
         $this->question = $post["question"];
         $this->choice_1 = $post["choice_1"];
         $this->choice_2 = $post["choice_2"];
         $this->choice_3 = $post["choice_3"];
         $this->choice_4 = $post["choice_4"];
+        $this->choice_5 = $post["choice_5"];
         $this->answer = $post["answer"];
         return $this->db->insert($this->_table, $this);
     }
@@ -75,11 +88,13 @@ class Question_model extends CI_Model
     {
         $post = $this->input->post();
         $this->quiz_id = $post["id"];
+        $this->no = $post["no"];
         $this->question = $post["question"];
         $this->choice_1 = $post["choice_1"];
         $this->choice_2 = $post["choice_2"];
         $this->choice_3 = $post["choice_3"];
         $this->choice_4 = $post["choice_4"];
+        $this->choice_5 = $post["choice_5"];
         $this->answer = $post["answer"];
         return $this->db->update($this->_table, $this, array('quiz_id' => $post['id']));
     }

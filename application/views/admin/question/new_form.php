@@ -35,6 +35,14 @@
 
                             <form action="<?php echo site_url('admin/questions/add') ?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
+                                    <label for="no">No*</label>
+                                    <input class="form-control <?php echo form_error('no') ? 'is-invalid' : '' ?>" type="text" name="no" placeholder="No" />
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('no') ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="question">Question*</label>
                                     <input class="form-control <?php echo form_error('question') ? 'is-invalid' : '' ?>" type="text" name="question" placeholder="Question" />
                                     <div class="invalid-feedback">
@@ -73,7 +81,15 @@
                                         <?php echo form_error('choice_4') ?>
                                     </div>
                                 </div>
-                                
+
+                                <div class="form-group">
+                                    <label for="choice_5">Choice 5*</label>
+                                    <input class="form-control <?php echo form_error('choice_5') ? 'is-invalid' : '' ?>" type="text" name="choice_5" min="0" placeholder="Choice 5" />
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('choice_5') ?>
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label for="answer">Answer*</label>
                                     <input class="form-control <?php echo form_error('answer') ? 'is-invalid' : '' ?>" type="text" name="answer" min="0" placeholder="Answer" />
