@@ -26,7 +26,7 @@
                             <br>
                             <h5>Ini adalah aplikasi untuk membuat soal dan melihat score para murid.</h5>
                             <br>
-                            <h5>Kamu dapat menambahkan dan mengedit soal di halaman 'Questions', menambahkan data siswa di halaman 'Students' dan melihat nilai para siswa di halaman 'Score'.</h5>
+                            <h5>Kamu dapat menambahkan dan mengedit soal di halaman 'Questions' dan melihat nilai para siswa di halaman 'Score'.</h5>
                         </div>
                     </div>
                 </div>

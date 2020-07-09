@@ -17,8 +17,15 @@ class Questions extends CI_Controller
 
     public function index()
     {
-        $data["questions"] = $this->question_model->getAll();
+        $data["question"] = $this->question_model->getAll();
         $this->load->view("admin/question/list", $data);
+    }
+
+    // api get data untuk mobile
+    public function index_get()
+    {
+        $data["question"] = $this->question_model->getAll();
+        echo json_encode($data);
     }
 
     public function add()

@@ -10,7 +10,7 @@ class Scores extends CI_Controller
         $this->load->model("score_model");
         $this->load->library('form_validation');
 
-        //untuk mengecek apakah user sudah login atau belum.
+        // //untuk mengecek apakah user sudah login atau belum.
         // $this->load->model("user_model");
         // if($this->user_model->isNotLogin()) redirect(site_url('admin/login'));
     }

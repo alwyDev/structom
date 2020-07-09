@@ -32,22 +32,38 @@
                                     <thead>
                                         <tr>
                                             <th>Question</th>
+                                            <th>Choice 1</th>
+                                            <th>Choice 2</th>
+                                            <th>Choice 3</th>
+                                            <th>Choice 4</th>
                                             <th>Answer</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($questions as $question) : ?>
+                                        <?php foreach ($question as $question) : ?>
                                             <tr>
                                                 <td width="500">
                                                     <?php echo $question->question ?>
                                                 </td>
                                                 <td width="100">
+                                                    <?php echo $question->choice_1 ?>
+                                                </td>
+                                                <td width="100">
+                                                    <?php echo $question->choice_2 ?>
+                                                </td>
+                                                <td width="100">
+                                                    <?php echo $question->choice_3 ?>
+                                                </td>
+                                                <td width="100">
+                                                    <?php echo $question->choice_4 ?>
+                                                </td>
+                                                <td width="100">
                                                     <?php echo $question->answer ?>
                                                 </td>
                                                 <td width="150">
-                                                    <a href="<?php echo site_url('admin/questions/edit/' . $question->question_id) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-                                                    <a onclick="deleteConfirm('<?php echo site_url('admin/questions/delete/' . $question->question_id) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                    <a href="<?php echo site_url('admin/questions/edit/' . $question->quiz_id) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+                                                    <a onclick="deleteConfirm('<?php echo site_url('admin/questions/delete/' . $question->quiz_id) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>

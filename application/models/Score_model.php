@@ -44,7 +44,7 @@ class Score_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->student_id = uniqid();
+        $this->student_id = '';
         $this->nis = $post["nis"];
         $this->name = $post["name"];
         $this->score = $post["score"];
