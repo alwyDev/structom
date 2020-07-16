@@ -34,7 +34,7 @@
                                         <tr>
                                             <th>NIS</th>
                                             <th>Nama</th>
-                                            <th>Password</th>
+                                            <!-- <th>Password</th> -->
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -47,9 +47,9 @@
                                                 <td width="400">
                                                     <?php echo $user->full_name ?>
                                                 </td>
-                                                <td width="200">
+                                                <!-- <td width="200">
                                                     <?php echo $user->password ?>
-                                                </td>
+                                                </td> -->
                                                 <td width="150">
                                                     <a href="<?php echo site_url('admin/users/edit/' . $user->user_id) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
                                                     <a onclick="deleteConfirm('<?php echo site_url('admin/users/delete/' . $user->user_id) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>

@@ -62,4 +62,49 @@ class Scores extends CI_Controller
             redirect(site_url('admin/scores'));
         }
     }
+
+
+    // API untuk mobile
+    public function index_get()
+    {
+        $data["scores"] = $this->score_model->getAll();
+        echo json_encode($data);
+    }
+
+    public function index_post()
+    {
+        // $post = $this->input->post();
+
+        $data = array(
+            // 'nis' => $post['nis'],
+            // 'name' => $post['name'],
+            // 'score' => $post['score']
+
+            'nis' => $this->input->post('nis'),
+            'name' => $this->input->post('name'),
+            'score' =>$this->input->post('score')
+        );
+        $insert = $this->db->insert('score', $data);
+
+        if ($insert) {
+            echo json_encode($data);
+        }
+    }
+
+    // function index_put()
+    // {
+    //     $id = $this->input->post('id');
+
+    //     $data = array(
+    //         'nis' => $this->input->post['nis'],
+    //         'name' => $this->input->post['name'],
+    //         'score' => $this->input->post['score']
+    //     );
+    //     $this->db->where('nis', $id);
+    //     $update = $this->db->update('score', $data, $id);
+
+    //     if ($update) {
+    //         echo json_encode($data);
+    //     }
+    // }
 }

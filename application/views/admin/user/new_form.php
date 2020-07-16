@@ -50,13 +50,13 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="password">Password*</label>
                                     <input class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="text" name="password" placeholder="password" />
                                     <div class="invalid-feedback">
                                         <?php echo form_error('user') ?>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <input class="btn btn-success" type="submit" name="btn" value="Save" />
                             </form>

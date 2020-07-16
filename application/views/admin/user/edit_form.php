@@ -58,13 +58,13 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="password">Password</label>
                                     <input class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="text" name="password" min="0" placeholder="Password" value="<?php echo $user->password ?>" />
                                     <div class="invalid-feedback">
                                         <?php echo form_error('password') ?>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <input class="btn btn-success" type="submit" name="btn" value="Save" />
                             </form>

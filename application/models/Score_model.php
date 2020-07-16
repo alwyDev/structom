@@ -8,6 +8,7 @@ class Score_model extends CI_Model
     public $nis;
     public $name;
     public $score;
+    public $created;
 
     public function rules()
     {
@@ -48,6 +49,7 @@ class Score_model extends CI_Model
         $this->nis = $post["nis"];
         $this->name = $post["name"];
         $this->score = $post["score"];
+        $this->created_at = $post["created_at"];
         return $this->db->insert($this->_table, $this);
     }
 
@@ -58,6 +60,7 @@ class Score_model extends CI_Model
         $this->nis = $post["nis"];
         $this->name = $post["name"];
         $this->score = $post["score"];
+        $this->created_at = $post["created_at"];
         return $this->db->update($this->_table, $this, array('student_id' => $post['id']));
     }
 

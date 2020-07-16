@@ -13,9 +13,9 @@
             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
             Scores
         </a>
-        <!-- <a class="nav-link" href="<?= base_url(); ?>admin/users">
-            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+        <a class="nav-link" href="<?= base_url(); ?>admin/users">
+            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
             Students
-        </a> -->
+        </a>
     </div>
 </div>

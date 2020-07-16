@@ -34,6 +34,8 @@
                                             <th>NIS</th>
                                             <th>Name</th>
                                             <th>Score</th>
+                                            <th>Taken at</th>
+                                            <th>Action</th>
                                             <!-- <th>Action</th> -->
                                         </tr>
                                     </thead>
@@ -49,10 +51,13 @@
                                                 <td width="100">
                                                     <?php echo $score->score ?>
                                                 </td>
-                                                <!-- <td width="150">
-                                                    <a href="<?php echo site_url('admin/scores/edit/' . $score->student_id) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+                                                <td width="200">
+                                                    <?php echo $score->created_at ?>
+                                                </td>
+                                                <td width="100">
+                                                    <!-- <a href="<?php echo site_url('admin/scores/edit/' . $score->student_id) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a> -->
                                                     <a onclick="deleteConfirm('<?php echo site_url('admin/scores/delete/' . $score->student_id) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
-                                                </td> -->
+                                                </td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

@@ -23,7 +23,7 @@
         </li> -->
         <div>
             <!-- <a class="btn btn-danger" href="<?php echo site_url('admin/login/logout') ?>">Logout</a> -->
-            <a class="text-secondary" data-toggle="modal" data-target="#logoutModal" href="">Logout</a>
+            <a class="btn btn-danger" data-toggle="modal" data-target="#logoutModal" href="">Logout</a>
         </div>
     </ul>
 </nav>
