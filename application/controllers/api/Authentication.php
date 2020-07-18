@@ -15,17 +15,17 @@ class Authentication extends REST_Controller {
     
     public function login_post() {
         // Get the post data
-        $email = $this->post('email');
-        $password = $this->post('password');
+        $name = $this->post('name');
+        $nis = $this->post('nis');
         
         // Validate the post data
-        if(!empty($email) && !empty($password)){
+        if(!empty($name) && !empty($nis)){
             
             // Check if any user exists with the given credentials
             $con['returnType'] = 'single';
             $con['conditions'] = array(
-                'email' => $email,
-                'password' => md5($password),
+                'name' => $name,
+                'nis' => $nis,
                 'status' => 1
             );
             $user = $this->user->getRows($con);
@@ -40,11 +40,11 @@ class Authentication extends REST_Controller {
             }else{
                 // Set the response and exit
                 //BAD_REQUEST (400) being the HTTP response code
-                $this->response("Wrong email or password.", REST_Controller::HTTP_BAD_REQUEST);
+                $this->response("Wrong name or nis.", REST_Controller::HTTP_BAD_REQUEST);
             }
         }else{
             // Set the response and exit
-            $this->response("Provide email and password.", REST_Controller::HTTP_BAD_REQUEST);
+            $this->response("Provide name and nis.", REST_Controller::HTTP_BAD_REQUEST);
         }
     }
     
@@ -53,11 +53,11 @@ class Authentication extends REST_Controller {
         $name = strip_tags($this->post('name'));
         $nis = strip_tags($this->post('nis'));
         $email = strip_tags($this->post('email'));
-        $password = $this->post('password');
+        $phone = strip_tags($this->post('phone'));
         $score = strip_tags($this->post('score'));
         
         // Validate the post data
-        if(!empty($name) && !empty($nis) && !empty($email) && !empty($password)){
+        if(!empty($name) && !empty($nis) && !empty($email) && !empty($phone)){
             
             // Check if the given email already exists
             $con['returnType'] = 'count';
@@ -75,7 +75,7 @@ class Authentication extends REST_Controller {
                     'name' => $name,
                     'nis' => $nis,
                     'email' => $email,
-                    'password' => md5($password),
+                    'phone' => $phone,
                     'score' => $score
                 );
                 $insert = $this->user->insert($userData);
@@ -127,11 +127,11 @@ class Authentication extends REST_Controller {
         $name = strip_tags($this->put('name'));
         $nis = strip_tags($this->put('nis'));
         $email = strip_tags($this->put('email'));
-        $password = $this->put('password');
+        $phone = $this->put('phone');
         $score = strip_tags($this->put('score'));
         
         // Validate the post data
-        if(!empty($id) && (!empty($name) || !empty($nis) || !empty($email) || !empty($password) || !empty($score))){
+        if(!empty($id) && (!empty($name) || !empty($nis) || !empty($email) || !empty($phone) || !empty($score))){
             // Update user's account data
             $userData = array();
             if(!empty($name)){
@@ -143,8 +143,8 @@ class Authentication extends REST_Controller {
             if(!empty($email)){
                 $userData['email'] = $email;
             }
-            if(!empty($password)){
-                $userData['password'] = md5($password);
+            if(!empty($phone)){
+                $userData['phone'] = md5($phone);
             }
             if(!empty($score)){
                 $userData['score'] = $score;
