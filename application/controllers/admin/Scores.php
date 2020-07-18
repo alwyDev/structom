@@ -90,21 +90,4 @@ class Scores extends CI_Controller
             echo json_encode($data);
         }
     }
-
-    // function index_put()
-    // {
-    //     $id = $this->input->post('id');
-
-    //     $data = array(
-    //         'nis' => $this->input->post['nis'],
-    //         'name' => $this->input->post['name'],
-    //         'score' => $this->input->post['score']
-    //     );
-    //     $this->db->where('nis', $id);
-    //     $update = $this->db->update('score', $data, $id);
-
-    //     if ($update) {
-    //         echo json_encode($data);
-    //     }
-    // }
 }
