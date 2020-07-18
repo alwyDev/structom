@@ -50,14 +50,14 @@ class Authentication extends REST_Controller {
     
     public function registration_post() {
         // Get the post data
-        $first_name = strip_tags($this->post('first_name'));
-        $last_name = strip_tags($this->post('last_name'));
+        $name = strip_tags($this->post('name'));
+        $nis = strip_tags($this->post('nis'));
         $email = strip_tags($this->post('email'));
         $password = $this->post('password');
-        $phone = strip_tags($this->post('phone'));
+        $score = strip_tags($this->post('score'));
         
         // Validate the post data
-        if(!empty($first_name) && !empty($last_name) && !empty($email) && !empty($password)){
+        if(!empty($name) && !empty($nis) && !empty($email) && !empty($password)){
             
             // Check if the given email already exists
             $con['returnType'] = 'count';
@@ -72,11 +72,11 @@ class Authentication extends REST_Controller {
             }else{
                 // Insert user data
                 $userData = array(
-                    'first_name' => $first_name,
-                    'last_name' => $last_name,
+                    'name' => $name,
+                    'nis' => $nis,
                     'email' => $email,
                     'password' => md5($password),
-                    'phone' => $phone
+                    'score' => $score
                 );
                 $insert = $this->user->insert($userData);
                 
@@ -124,21 +124,21 @@ class Authentication extends REST_Controller {
         $id = $this->put('id');
         
         // Get the post data
-        $first_name = strip_tags($this->put('first_name'));
-        $last_name = strip_tags($this->put('last_name'));
+        $name = strip_tags($this->put('name'));
+        $nis = strip_tags($this->put('nis'));
         $email = strip_tags($this->put('email'));
         $password = $this->put('password');
-        $phone = strip_tags($this->put('phone'));
+        $score = strip_tags($this->put('score'));
         
         // Validate the post data
-        if(!empty($id) && (!empty($first_name) || !empty($last_name) || !empty($email) || !empty($password) || !empty($phone))){
+        if(!empty($id) && (!empty($name) || !empty($nis) || !empty($email) || !empty($password) || !empty($score))){
             // Update user's account data
             $userData = array();
-            if(!empty($first_name)){
-                $userData['first_name'] = $first_name;
+            if(!empty($name)){
+                $userData['name'] = $name;
             }
-            if(!empty($last_name)){
-                $userData['last_name'] = $last_name;
+            if(!empty($nis)){
+                $userData['nis'] = $nis;
             }
             if(!empty($email)){
                 $userData['email'] = $email;
@@ -146,8 +146,8 @@ class Authentication extends REST_Controller {
             if(!empty($password)){
                 $userData['password'] = md5($password);
             }
-            if(!empty($phone)){
-                $userData['phone'] = $phone;
+            if(!empty($score)){
+                $userData['score'] = $score;
             }
             $update = $this->user->update($userData, $id);
             
