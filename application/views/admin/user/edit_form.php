@@ -40,7 +40,7 @@
                                 <!-- Note: atribut action dikosongkan, artinya action-nya akan diproses 
                 oleh controller tempat view ini digunakan. Yakni admin/scores/edit/ID --->
 
-                                <input type="hidden" name="id" value="<?php echo $user->user_id ?>" />
+                                <input type="hidden" name="id" value="<?php echo $user->id ?>" />
 
                                 <div class="form-group">
                                     <label for="nis">NIS*</label>
@@ -51,20 +51,28 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="full_name">Name*</label>
-                                    <input class="form-control <?php echo form_error('full_name') ? 'is-invalid' : '' ?>" type="text" name="full_name" placeholder="Name" value="<?php echo $user->full_name ?>" />
+                                    <label for="name">Name*</label>
+                                    <input class="form-control <?php echo form_error('name') ? 'is-invalid' : '' ?>" type="text" name="name" placeholder="Name" value="<?php echo $user->name ?>" />
                                     <div class="invalid-feedback">
-                                        <?php echo form_error('full_name') ?>
+                                        <?php echo form_error('name') ?>
                                     </div>
                                 </div>
 
-                                <!-- <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="text" name="password" min="0" placeholder="Password" value="<?php echo $user->password ?>" />
+                                <div class="form-group">
+                                    <label for="email">Email*</label>
+                                    <input class="form-control <?php echo form_error('email') ? 'is-invalid' : '' ?>" type="text" name="email" min="0" placeholder="email" value="<?php echo $user->email ?>" />
                                     <div class="invalid-feedback">
-                                        <?php echo form_error('password') ?>
+                                        <?php echo form_error('email') ?>
                                     </div>
-                                </div> -->
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Phone*</label>
+                                    <input class="form-control <?php echo form_error('phone') ? 'is-invalid' : '' ?>" type="text" name="phone" min="0" placeholder="phone" value="<?php echo $user->phone ?>" />
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('phone') ?>
+                                    </div>
+                                </div>
 
                                 <input class="btn btn-success" type="submit" name="btn" value="Save" />
                             </form>

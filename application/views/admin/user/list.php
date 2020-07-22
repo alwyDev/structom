@@ -34,25 +34,29 @@
                                         <tr>
                                             <th>NIS</th>
                                             <th>Nama</th>
-                                            <!-- <th>Password</th> -->
+                                            <th>Email</th>
+                                            <th>Phone</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($users as $user) : ?>
+                                        <?php foreach ($user as $user) : ?>
                                             <tr>
                                                 <td width="100">
                                                     <?php echo $user->nis ?>
                                                 </td>
-                                                <td width="400">
-                                                    <?php echo $user->full_name ?>
+                                                <td width="250">
+                                                    <?php echo $user->name ?>
                                                 </td>
-                                                <!-- <td width="200">
-                                                    <?php echo $user->password ?>
-                                                </td> -->
                                                 <td width="150">
-                                                    <a href="<?php echo site_url('admin/users/edit/' . $user->user_id) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-                                                    <a onclick="deleteConfirm('<?php echo site_url('admin/users/delete/' . $user->user_id) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                    <?php echo $user->email ?>
+                                                </td>
+                                                <td width="100">
+                                                    <?php echo $user->phone ?>
+                                                </td>
+                                                <td width="150">
+                                                    <a href="<?php echo site_url('admin/users/edit/' . $user->id) ?>" class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+                                                    <a onclick="deleteConfirm('<?php echo site_url('admin/users/delete/' . $user->id) ?>')" href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>

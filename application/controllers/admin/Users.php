@@ -17,7 +17,7 @@ class Users extends CI_Controller
 
     public function index()
     {
-        $data["users"] = $this->user_model->getAll();
+        $data["user"] = $this->user_model->getAll();
         $this->load->view("admin/user/list", $data);
     }
 
@@ -67,29 +67,7 @@ class Users extends CI_Controller
     // api get data untuk mobile
     public function index_get()
     {
-        $data["users"] = $this->user_model->getAll();
+        $data["user"] = $this->user_model->getAll();
         echo json_encode($data);
-    }
-
-    public function login_post() {
-        // Get the post data
-        $nis = $this->input->post('nis');
-        $full_name = $this->input->post('full_name');
-
-        // Validate the post data
-        if (!empty($nis) && !empty($full_name)) {
-
-            // Check if any user exists with the given credentials
-            $con['returnType'] = 'single';
-            $con['conditions'] = array(
-                'nis' => $nis,
-                'full_name' => $full_name
-            );
-            $user = $this->user->getRows($con);
-
-            if ($user) {
-                echo json_encode($user);
-            }
-        }
     }
 }

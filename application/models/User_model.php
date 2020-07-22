@@ -2,7 +2,7 @@
 
 class User_model extends CI_Model
 {
-    private $_table = "users";
+    private $_table = "user";
 
     public function doLogin()
     {
@@ -25,7 +25,7 @@ class User_model extends CI_Model
             if ($isPasswordTrue) {
                 // login sukses!
                 $this->session->set_userdata(['user_logged' => $user]);
-                $this->_updateLastLogin($user->user_id);
+                $this->_updateLastLogin($user->id);
                 return true;
             }
         }
@@ -39,17 +39,19 @@ class User_model extends CI_Model
         return $this->session->userdata('user_logged') === null;
     }
 
-    private function _updateLastLogin($user_id)
+    private function _updateLastLogin($id)
     {
-        $sql = "UPDATE {$this->_table} SET last_login=now() WHERE user_id={$user_id}";
+        $sql = "UPDATE {$this->_table} SET last_login=now() WHERE id={$id}";
         $this->db->query($sql);
     }
 
 
     // users(student) data
-    public $user_id;
+    public $id;
     public $nis;
-    public $full_name;
+    public $name;
+    public $email;
+    public $phone;
     // public $password;
 
     public function rules()
@@ -61,16 +63,20 @@ class User_model extends CI_Model
                 'rules' => 'required'
             ],
             [
-                'field' => 'full_name',
+                'field' => 'name',
                 'label' => 'Name',
                 'rules' => 'required'
+            ],
+            [
+                'field' => 'email',
+                'label' => 'Email',
+                'rules' => 'required'
+            ],
+            [
+                'field' => 'phone',
+                'label' => 'Phone',
+                'rules' => 'required'
             ]
-
-            // [
-            //     'field' => 'password',
-            //     'label' => 'Password',
-            //     'rules' => 'required'
-            // ]
         ];
     }
 
@@ -81,15 +87,17 @@ class User_model extends CI_Model
 
     public function getById($id)
     {
-        return $this->db->get_where($this->_table, ["user_id" => $id])->row();
+        return $this->db->get_where($this->_table, ["id" => $id])->row();
     }
 
     public function save()
     {
         $post = $this->input->post();
-        // $this->user_id = '';
+        // $this->id = '';
         $this->nis = $post["nis"];
-        $this->full_name = $post["full_name"];
+        $this->name = $post["name"];
+        $this->email = $post["email"];
+        $this->phone = $post["phone"];
         // $this->password = $post["password"];
         return $this->db->insert($this->_table, $this);
     }
@@ -97,15 +105,17 @@ class User_model extends CI_Model
     public function update()
     {
         $post = $this->input->post();
-        $this->user_id = $post["id"];
+        $this->id = $post["id"];
         $this->nis = $post["nis"];
-        $this->full_name = $post["full_name"];
+        $this->name = $post["name"];
+        $this->email = $post["email"];
+        $this->phone = $post["phone"];
         // $this->password = $post["password"];
-        return $this->db->update($this->_table, $this, array('user_id' => $post['id']));
+        return $this->db->update($this->_table, $this, array('id' => $post['id']));
     }
 
     public function delete($id)
     {
-        return $this->db->delete($this->_table, array("user_id" => $id));
+        return $this->db->delete($this->_table, array("id" => $id));
     }
 }

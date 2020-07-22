@@ -43,20 +43,28 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="full_name">Name*</label>
-                                    <input class="form-control <?php echo form_error('full_name') ? 'is-invalid' : '' ?>" type="text" name="full_name" placeholder="Name" />
+                                    <label for="name">Name*</label>
+                                    <input class="form-control <?php echo form_error('name') ? 'is-invalid' : '' ?>" type="text" name="name" placeholder="Name" />
                                     <div class="invalid-feedback">
-                                        <?php echo form_error('_full_name') ?>
+                                        <?php echo form_error('name') ?>
                                     </div>
                                 </div>
 
-                                <!-- <div class="form-group">
-                                    <label for="password">Password*</label>
-                                    <input class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" type="text" name="password" placeholder="password" />
+                                <div class="form-group">
+                                    <label for="email">Email*</label>
+                                    <input class="form-control <?php echo form_error('email') ? 'is-invalid' : '' ?>" type="text" name="email" placeholder="email" />
                                     <div class="invalid-feedback">
-                                        <?php echo form_error('user') ?>
+                                        <?php echo form_error('email') ?>
                                     </div>
-                                </div> -->
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Phone*</label>
+                                    <input class="form-control <?php echo form_error('phone') ? 'is-invalid' : '' ?>" type="text" name="phone" placeholder="phone" />
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('phone') ?>
+                                    </div>
+                                </div>
 
                                 <input class="btn btn-success" type="submit" name="btn" value="Save" />
                             </form>
