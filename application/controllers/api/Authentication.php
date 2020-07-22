@@ -40,11 +40,13 @@ class Authentication extends REST_Controller {
             }else{
                 // Set the response and exit
                 //BAD_REQUEST (400) being the HTTP response code
-                $this->response("Wrong name or nis.", REST_Controller::HTTP_BAD_REQUEST);
+                $message = array("message" => "Wrong name or nis.");
+                $this->output->set_status_header(200)->set_content_type('application/json', 'utf-8')->set_output(json_encode($message, JSON_PRETTY_PRINT));
             }
         }else{
             // Set the response and exit
-            $this->response("Provide name and nis.", REST_Controller::HTTP_BAD_REQUEST);
+            $message = array("message" => "Provide name and nis.");
+            $this->output->set_status_header(200)->set_content_type('application/json', 'utf-8')->set_output(json_encode($message, JSON_PRETTY_PRINT));
         }
     }
     
