@@ -26,7 +26,10 @@
                             <br>
                             <h5>Ini adalah aplikasi untuk membuat soal dan melihat score para murid.</h5>
                             <br>
-                            <h5>Kamu dapat menambahkan dan mengedit soal di halaman 'Questions' dan melihat nilai para siswa di halaman 'Score'.</h5>
+                            <h5>Kamu dapat menambahkan dan mengedit soal di halaman 'Questions', melihat nilai para siswa di halaman 'Score' dan menambahkan data murid di halaman 'Students'.</h5>
+                            <hr>
+                            <h5>Kamu dapat mendownload aplikasi mobile Komik Struktur Atom di link berikut ini:</h5>
+                            <a href="#">Download</a>
                         </div>
                     </div>
                 </div>
