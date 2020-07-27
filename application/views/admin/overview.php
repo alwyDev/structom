@@ -29,7 +29,10 @@
                             <h5>Kamu dapat menambahkan dan mengedit soal di halaman 'Questions', melihat nilai para siswa di halaman 'Score' dan menambahkan data murid di halaman 'Students'.</h5>
                             <hr>
                             <h5>Kamu dapat mendownload aplikasi mobile Komik Struktur Atom di link berikut ini:</h5>
-                            <a href="#">Download</a>
+                            <h5>
+                                <a href="https://bit.ly/2EmW9Lp" target="_blank">Download</a>
+                            </h5>
+
                         </div>
                     </div>
                 </div>
