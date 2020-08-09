@@ -49,7 +49,7 @@
                                                 <td width="50">
                                                     <?php echo $exercise->no ?>
                                                 </td>
-                                                <td width="500">
+                                                <td width="300">
                                                     <?php echo $exercise->question ?>
                                                 </td>
                                                 <td width="100">
